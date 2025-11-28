@@ -2,7 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-command_ideas.txt
+/docs/KafkaFlow.drawio
+/docs/command_ideas.txt
 
 /browsertesting/QloudMafia
 /.idea/.idea.Neon/.idea
