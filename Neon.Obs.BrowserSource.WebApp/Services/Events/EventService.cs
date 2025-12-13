@@ -14,6 +14,23 @@ public class EventService(ILogger<EventService> logger) : IEventService
         
         if (string.IsNullOrEmpty(eventType))
             return null;
+
+        TwitchEventMessage? retVal = null;
+        
+        if (eventType is "timeout" or "message-delete")
+        {
+            retVal = new TwitchEventMessage
+            {
+                EventType = eventType,
+                ChannelName = message.Payload?.Event?.BroadcasterUserName,
+                ChannelId = message.Payload?.Event?.BroadcasterUserId,
+                ChatterName = message.Payload?.Event?.TargetUserName,
+                ChatterId = message.Payload?.Event?.TargetUserId,
+                MessageId = message.Payload?.Event?.MessageId
+            };
+            
+            return retVal;
+        }
         
         var eventMessage = GetStandardEventMessage(eventType, message);
         if (string.IsNullOrEmpty(eventMessage))
@@ -24,7 +41,7 @@ public class EventService(ILogger<EventService> logger) : IEventService
 
         var eventLevel = GetEventLevel(eventType, message);
 
-        var retVal = new TwitchEventMessage
+        retVal = new TwitchEventMessage
         {
             EventType = eventType,
             EventMessage = eventMessage,
@@ -49,6 +66,8 @@ public class EventService(ILogger<EventService> logger) : IEventService
             "channel.channel_points_custom_reward_redemption.add" => "reward-redeem",
             "channel.raid" => "raid",
             "channel.bits.use" => "cheer",
+            "channel.chat.message_delete" => "message-delete",
+            "channel.chat.clear_user_messages" => "timeout",
             _ => null
         };
     }

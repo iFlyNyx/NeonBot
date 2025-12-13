@@ -9,4 +9,5 @@ public class TwitchEventMessage
     public string? ChannelId { get; set; }
     public string? ChatterName { get; set; }
     public string? ChatterId { get; set; }
+    public string? MessageId { get; set; }
 }

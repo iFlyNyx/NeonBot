@@ -112,4 +112,14 @@ public class Event
     public string? ToBroadcasterUserName { get; set; }
     [JsonProperty("viewers")]
     public int? Viewers { get; set; }
+    
+    //timeout/delete details
+    [JsonProperty("message_id")]
+    public string? MessageId { get; set; }
+    [JsonProperty("target_user_id")]
+    public string? TargetUserId { get; set; }
+    [JsonProperty("target_user_name")]
+    public string? TargetUserName { get; set; }
+    [JsonProperty("target_user_login")]
+    public string? TargetUserLogin { get; set; }
 }

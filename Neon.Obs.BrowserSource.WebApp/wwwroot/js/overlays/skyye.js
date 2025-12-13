@@ -61,6 +61,14 @@ function handleMessage(msg) {
 }
 
 function handleEvent(msg) {
+    let eventType = msg.eventType;
+    
+    if (eventType === "message-delete" || eventType === "timeout") {
+        handleMessageDelete(msg);
+        document.getElementById(`chat-message-${chatCounter}`).scrollIntoView({ behavior: 'smooth' });
+        return;
+    }
+    
     let message = msg.eventMessage;
     let messageStyle = msg.eventLevel;
     
@@ -75,6 +83,26 @@ function handleEvent(msg) {
     chatCounter++;
 
     clearOldMessages();
+}
+
+function handleMessageDelete(msg) {
+    let eventType = msg.eventType;
+    
+    if (eventType === "message-delete") {
+        let targetDiv = document.querySelector(`div[message-id='${msg.messageId}']`);
+        if (!targetDiv) return;
+        
+        targetDiv.classList.add('d-none');
+    }
+    
+    if (eventType === "timeout") {
+        let targetDivs = document.querySelectorAll(`div[username='${msg.chatterName}']`);
+        if (!targetDivs || targetDivs.length === 0) return;
+        
+        targetDivs.forEach((div) => {
+            div.classList.add('d-none');
+        });
+    }
 }
 
 function handleStreamElementsEvent(msg) {

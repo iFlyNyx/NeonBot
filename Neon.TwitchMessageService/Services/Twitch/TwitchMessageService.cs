@@ -55,7 +55,7 @@ public class TwitchMessageService(ILogger<TwitchMessageService> logger, IHttpSer
             var chatbotMessage = new ChatbotMessage
             {
                 Message = twitchMessage.Payload.Event.TwitchMessage.Text,
-                MessageId = twitchMessage.MetaData?.MessageId,
+                MessageId = twitchMessage.Payload.Event.MessageId,
                 ChannelName = twitchMessage.Payload.Event.BroadcasterUserName,
                 ChannelId = channelId,
                 ChatterName = twitchMessage.Payload.Event.ChatterUserName,
@@ -259,7 +259,7 @@ public class TwitchMessageService(ILogger<TwitchMessageService> logger, IHttpSer
             retVal = new ProcessedMessage
             {
                 Message = message.Payload.Event.TwitchMessage.Text,
-                MessageId = message.MetaData?.MessageId,
+                MessageId = message.Payload.Event.MessageId,
                 ChannelName = message.Payload.Event.BroadcasterUserName,
                 ChatterName = message.Payload.Event.ChatterUserName,
                 ChatterColor = string.IsNullOrEmpty(message.Payload.Event.Color) ? DefaultChatterColor : message.Payload.Event.Color,
@@ -289,7 +289,7 @@ public class TwitchMessageService(ILogger<TwitchMessageService> logger, IHttpSer
         retVal = new ProcessedMessage
         {
             Message = processedMessage,
-            MessageId = message.MetaData?.MessageId,
+            MessageId = message.Payload.Event.MessageId,
             ChannelName = message.Payload.Event.BroadcasterUserName,
             ChatterName = message.Payload.Event.ChatterUserName,
             ChatterColor = string.IsNullOrEmpty(message.Payload.Event.Color) ? DefaultChatterColor : message.Payload.Event.Color,
