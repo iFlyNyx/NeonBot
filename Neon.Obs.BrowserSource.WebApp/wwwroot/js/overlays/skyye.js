@@ -35,6 +35,7 @@ function handleMessage(msg) {
     let username = msg.chatterName;
     let style = getChatterStyle(msg.chatterFlags, username);
     let message = msg.message;
+    let messageId = msg.messageId;
     
     if (ignoreBotUsers.includes(username.toLowerCase())) {
         return;
@@ -47,6 +48,8 @@ function handleMessage(msg) {
     let newMsg = buildNewChatMessage(username, style, message, msg.chatterFlags);
     let newMsgId = `chat-message-${chatCounter}`;
     newMsg.id = newMsgId;
+    newMsg.setAttribute('message-id', messageId);
+    newMsg.setAttribute('username', username);
     
     const chatContainer = document.querySelector('#chat-container');
     chatContainer.appendChild(newMsg);

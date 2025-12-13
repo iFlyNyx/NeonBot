@@ -10,6 +10,7 @@ public class ProcessedMessage
     public string? ChatterColor { get; set; }
     public List<ProviderBadge>? ChatterBadges { get; set; }
     public string? Message { get; set; }
+    public string? MessageId { get; set; }
     public TwitchChatterFlags? ChatterFlags { get; set; }
     public string? ChannelId { get; set; }
 }

@@ -12,8 +12,8 @@ public class TwitchMessageConsumer(ILogger<TwitchMessageConsumer> logger, IServi
 {
     private readonly BaseKafkaConfig _kafkaConfig = kafkaConfig.Value ?? throw new ArgumentNullException(nameof(kafkaConfig));
     
-    private readonly string? Topic = "twitch-channel-processed-messages";
-    private readonly string? GroupId = "twitch-channel-processed-messages-group-obs-webapp";
+    private const string? Topic = "twitch-channel-processed-messages";
+    private const string? GroupId = "twitch-channel-processed-messages-group-obs-webapp";
 
     protected override async Task ExecuteAsync(CancellationToken ct)
     {

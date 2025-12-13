@@ -7,6 +7,7 @@ public class ChatbotMessage
     public string? ChatterName { get; set; }
     public string? ChatterId { get; set; }
     public string? Message { get; set; }
+    public string? MessageId { get; set; }
     public string? EventType { get; set; }
     public string? EventMessage { get; set; }
     public TwitchChatterFlags? ChatterFlags { get; set; }
