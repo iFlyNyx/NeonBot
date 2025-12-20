@@ -227,6 +227,13 @@ public class TwitchMessageService(ILogger<TwitchMessageService> logger, IHttpSer
             if (tEmotes is null || tEmotes.Count == 0)
                 continue;
             
+            logger.LogDebug("Fetched additional {count} emotes for non-channel emotes", tEmotes.Count);
+            
+            //ensure only twitch emotes are pulled from other channels, this avoids bttv/ffz/7tv emotes from other channels being added
+            tEmotes = tEmotes.Where(s => s.Provider == EmoteProviderEnum.Twitch).ToList();
+            
+            logger.LogDebug("Trimmed to {count} twitch emotes for non-channel emotes", tEmotes.Count);
+            
             retVal.AddRange(tEmotes);
         }
         
