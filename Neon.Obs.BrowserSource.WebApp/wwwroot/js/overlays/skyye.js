@@ -260,6 +260,14 @@ function addCustomUserTags(username, element) {
         
         return;
     }
+    
+    if (username.toLowerCase() === 'neliossar3') {
+        let customTagAppend = document.createElement('div');
+        customTagAppend.classList.add('chatter-neliossar3-totem');
+        element.append(customTagAppend);
+        
+        return;
+    }
 }
 
 function buildNewEventMessage(message, type) {

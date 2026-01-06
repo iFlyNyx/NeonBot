@@ -296,6 +296,30 @@ canvas.flipped {
     left: -.6rem;
 }
 
+.chatter-neliossar3 {
+    background-image: url('/images/skyye/neliossar3/neliossar3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 0;
+    width: 76px;
+    height: 76px;
+    top: -64px;
+    left: 1.1rem;
+}
+
+.chatter-neliossar3-totem {
+    background-image: url('/images/skyye/neliossar3/neliossar3Totem.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;    
+    z-index: 4;
+    width: 80px;
+    height: 80px;
+    top: -58px;
+    left: 4.6rem;
+}
+
 .chatter-cthulhulel {
     background-image: url('/images/skyye/cthulhulel/cthulhulel.png');
     background-size: contain;
