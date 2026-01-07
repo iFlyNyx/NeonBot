@@ -116,6 +116,18 @@ body {
 }
 
 .user-box-inner span {
+    padding: 3px 10px 3px 10px;
+    font-size: 0.85rem;
+    line-height: 1;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: var(--username-font-family);
+    color: var(--username-font-color);
+}
+
+.user-box-inner span.vip {
     padding: 3px 3px 3px 10px;
     font-size: 0.85rem;
     line-height: 1;

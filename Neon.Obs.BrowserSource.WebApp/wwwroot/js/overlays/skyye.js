@@ -137,22 +137,24 @@ function handleStreamElementsEvent(msg) {
     clearOldMessages();
 }
 
-function clearOldMessages() {
-    const chatContainer = document.querySelector('#chat-container');
-    const oldestMessage = chatContainer.firstElementChild;
+function clearOldMessages() {    
+    const chatContainer = Array.from(document.querySelector('#chat-container').children);
+    let overflowCount = chatContainer.length - maxMessages;
     
-    if (document.hidden && oldestMessage) {
-        oldestMessage.remove();
-        return;
-    }
+    if (overflowCount <= 0) return;
     
-    if (oldestMessage) {
-        oldestMessage.classList.add('fade-out');
-    }
-    
-    oldestMessage.addEventListener('transitionend', () => {
-        oldestMessage.remove();
-    }, { once: true });
+    let messagesToRemove = chatContainer.slice(0, overflowCount).filter(s => !s.dataset.removing);
+    messagesToRemove.forEach(message => {
+        message.dataset.removing = "true";
+        fadeAndRemove(message);
+    });
+}
+
+function fadeAndRemove(element) {
+    element.classList.add('fade-out');
+    setTimeout(() => {
+        element.remove();
+    }, 500);
 }
 
 function getChatterStyle(chatterFlags, username) {    
@@ -189,11 +191,16 @@ function buildNewChatMessage(username, style, message, chatterFlags) {
     
     let neonUsername = document.createElement('span')
     neonUsername.textContent = username;
-    neonUserBoxInner.appendChild(neonUsername);
     
     let chatterImageBonus = (style === 'vip' || (customUsers.includes(username.toLowerCase()) && chatterFlags.isVip)) ? document.createElement('div') : undefined;
     if (chatterImageBonus) {
+        neonUsername.classList.add('vip');
         chatterImageBonus.classList.add('chatter-vip-badge');
+    }
+
+    neonUserBoxInner.appendChild(neonUsername);
+    
+    if (chatterImageBonus) {
         neonUserBoxInner.appendChild(chatterImageBonus);
     }
     
