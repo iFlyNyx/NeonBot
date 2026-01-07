@@ -20,15 +20,30 @@ window.Overlay.onInit = () => {
 };
 
 window.Overlay.onMessageReceived = (msg) => {
-    handleMessage(msg);
+    try {
+        handleMessage(msg);
+    }
+    catch (error) {
+        console.error('Error handling message:', error);
+    }
 };
 
 window.Overlay.onEventReceived = (msg) => {
-    handleEvent(msg);
+    try {
+        handleEvent(msg);
+    }
+    catch (error) {
+        console.error('Error handling event:', error);
+    }
 };
 
 window.Overlay.onStreamElementsEventReceived = (msg) => {
-    handleStreamElementsEvent(msg);
+    try {
+        handleStreamElementsEvent(msg);
+    }
+    catch (error) {
+        console.error('Error handling StreamElements event:', error);
+    }
 };
 
 function handleMessage(msg) {
@@ -123,7 +138,7 @@ function handleStreamElementsEvent(msg) {
 }
 
 function clearOldMessages() {
-    const chatContainer = document.querySelector('.chat-container');
+    const chatContainer = document.querySelector('#chat-container');
     const oldestMessage = chatContainer.firstElementChild;
     
     if (document.hidden && oldestMessage) {
@@ -169,9 +184,20 @@ function buildNewChatMessage(username, style, message, chatterFlags) {
 
     let neonUserBox = document.createElement('div')
     neonUserBox.classList.add('user-box');
+    let neonUserBoxInner = document.createElement('div')
+    neonUserBoxInner.classList.add('user-box-inner');
+    
     let neonUsername = document.createElement('span')
     neonUsername.textContent = username;
-    neonUserBox.appendChild(neonUsername);
+    neonUserBoxInner.appendChild(neonUsername);
+    
+    let chatterImageBonus = (style === 'vip' || (customUsers.includes(username.toLowerCase()) && chatterFlags.isVip)) ? document.createElement('div') : undefined;
+    if (chatterImageBonus) {
+        chatterImageBonus.classList.add('chatter-vip-badge');
+        neonUserBoxInner.appendChild(chatterImageBonus);
+    }
+    
+    neonUserBox.appendChild(neonUserBoxInner);
     addCustomUserBoxTags(username, neonUserBox);
 
     let chatterImage = document.createElement('div')
@@ -179,11 +205,6 @@ function buildNewChatMessage(username, style, message, chatterFlags) {
 
     if (style === 'vip' || style === 'mod' || style === 'sub' || (customUsers.includes(username.toLowerCase()) && !chatterFlags.isBroadcaster)) {
         chatterImage.classList.add('animated');
-    }
-
-    let chatterImageBonus = (style === 'vip' || (customUsers.includes(username.toLowerCase()) && chatterFlags.isVip)) ? document.createElement('div') : undefined;
-    if (chatterImageBonus) {
-        chatterImageBonus.classList.add('chatter-vip-badge');
     }
 
     let subRazzle = style === 'sub' ? document.createElement('div') : undefined;
@@ -196,9 +217,7 @@ function buildNewChatMessage(username, style, message, chatterFlags) {
     neonMessage.classList.add('neon-message');
     neonMessage.appendChild(chatterImage);
     addCustomUserTags(username, neonMessage);
-    if (chatterImageBonus) {
-        neonMessage.appendChild(chatterImageBonus);
-    }
+
     if (subRazzle) {
         neonMessage.appendChild(subRazzle);
     }
