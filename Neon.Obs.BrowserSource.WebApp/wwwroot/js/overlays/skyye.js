@@ -275,7 +275,7 @@ function addCustomUserTags(username, element) {
         return;
     }
     
-    if (username.toLowerCase() === 'skyyexvii') {
+    if (username.toLowerCase() === 'skyyexvii' || username.toLowerCase() === 'sleepyskyye') {
         let customTagPrepend = document.createElement('div');
         customTagPrepend.classList.add('chatter-skyyexvii-hair');
         element.prepend(customTagPrepend);
