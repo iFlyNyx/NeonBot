@@ -196,7 +196,7 @@ function buildNewChatMessage(username, style, message, chatterFlags) {
         let broadcasterImg = document.createElement('img')
         broadcasterImg.classList.add('pe-1');
         broadcasterImg.src = "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1";
-        neonUsername.appendChild(broadcasterImg);
+        neonUsername.prepend(broadcasterImg);
     }
     
     let chatterImageBonus = (style === 'vip' || (customUsers.includes(username.toLowerCase()) && chatterFlags.isVip)) ? document.createElement('div') : undefined;
