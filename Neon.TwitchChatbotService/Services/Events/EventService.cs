@@ -48,7 +48,7 @@ public class EventService(ILogger<EventService> logger) : IEventService
             //"channel.subscription.gift" => "gift-sub",
             //"channel.subscribe" => "sub",
             //"channel.subscription.message" => "resub",
-            "channel.ad_break.begin" => "ad-begin",
+            //"channel.ad_break.begin" => "ad-begin",
             //"channel.channel_points_custom_reward_redemption.add" => "reward-redeem",
             //"channel.raid" => "raid",
             //"channel.bits.use" => "cheer",
