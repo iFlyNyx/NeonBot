@@ -194,17 +194,17 @@ body {
     left: 1rem;
 }
 
-.chatter-broadcaster {
-    background-image: url('/images/skyye/broadcaster.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: 2;
-    width: 120px;
-    height: 160px;
-    top: -91px;
-    left: -.6rem;
-}
+/*.chatter-broadcaster {*/
+/*    background-image: url('/images/skyye/broadcaster.png');*/
+/*    background-size: contain;*/
+/*    background-repeat: no-repeat;*/
+/*    position: absolute;*/
+/*    z-index: 2;*/
+/*    width: 120px;*/
+/*    height: 160px;*/
+/*    top: -91px;*/
+/*    left: -.6rem;*/
+/*}*/
 
 .chatter-sub {
     background-image: url('/images/skyye/chatter.png');
