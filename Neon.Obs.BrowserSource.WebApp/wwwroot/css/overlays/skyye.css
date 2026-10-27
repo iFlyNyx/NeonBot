@@ -1,21 +1,21 @@
 ﻿:root {
-    --chatbox-start-color: hsl(211, 95%, 71%);
-    --chatbox-end-color: hsl(192, 100%, 93%);
+    --chatbox-start-color: hsl(326, 100%, 87%);
+    --chatbox-end-color: hsl(323, 100%, 72%);
     --chatbox-gradient-angle: 120deg;
-    --chatbox-gradient-stops: 30%;
-    --chatbox-border-color: hsl(218, 92%, 67%);
+    --chatbox-gradient-stops: 70%;
+    --chatbox-border-color: hsl(323, 100%, 67%);
     --chatbox-inner-border-color: hsl(180, 100%, 95%);
-
-    --user-box-start-color: hsl(211, 95%, 71%);
-    --user-box-end-color: hsl(191, 100%, 93%);
+    
+    --user-box-start-color: hsl(0, 0%, 100%);
+    --user-box-end-color: hsl(323, 100%, 80%);
     --user-box-gradient-angle: 180deg;
-    --user-box-gradient-stops: 10%;
-    --user-box-border-color: hsl(218, 92%, 67%);
+    --user-box-gradient-stops: 25%;
+    --user-box-border-color: hsl(323, 100%, 67%);
 
     --username-font-family: "SuperUnicorn", sans-serif;
-    --username-font-color: hsl(211, 47%, 21%);
+    --username-font-color: hsl(323, 100%, 12%);
     --chat-message-font-family: "SuperUnicorn", sans-serif;
-    --chat-message-font-color: hsl(211, 47%, 21%);
+    --chat-message-font-color: hsl(323, 100%, 12%);
 
     --chat-container-width: 650px;
     --animation-duration: .5s;
@@ -104,7 +104,7 @@ body {
     align-items: center;
     justify-content: left;
 
-    border: 1.5px solid var(--user-box-border-color);
+    border: 2px solid var(--user-box-border-color);
     border-radius: 75px;
     background-image: linear-gradient(var(--user-box-gradient-angle), var(--user-box-start-color), var(--user-box-gradient-stops), var(--user-box-end-color));
 }
