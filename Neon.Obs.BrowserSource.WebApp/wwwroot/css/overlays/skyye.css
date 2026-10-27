@@ -16,6 +16,8 @@
     --username-font-color: hsl(323, 100%, 12%);
     --chat-message-font-family: "SuperUnicorn", sans-serif;
     --chat-message-font-color: hsl(323, 100%, 12%);
+    
+    --event-message-font-color: hsl(0, 0%, 100%);
 
     --chat-container-width: 650px;
     --animation-duration: .5s;
@@ -463,7 +465,7 @@ canvas.flipped {
 
 .eventbox-inner span {
     font-family: var(--username-font-family);
-    color: var(--username-font-color);
+    color: var(--event-message-font-color);
     padding: 0 1rem;
     white-space: normal;
     overflow-wrap: anywhere;
