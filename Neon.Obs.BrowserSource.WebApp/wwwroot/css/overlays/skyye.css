@@ -18,6 +18,7 @@
     --chat-message-font-color: hsl(323, 100%, 12%);
     
     --event-message-font-color: hsl(0, 0%, 100%);
+    --event-message-border-color: hsl(323, 100%, 77%);
 
     --chat-container-width: 650px;
     --animation-duration: .5s;
@@ -444,7 +445,7 @@ canvas.flipped {
     border-radius: 45px;
     height: 80px;
     width: 70%;
-    border: 2px solid var(--chatbox-border-color);
+    border: 3px solid var(--event-message-border-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -471,6 +472,7 @@ canvas.flipped {
     overflow-wrap: anywhere;
     word-break: break-word;
     text-align: center;
+    font-size: 0.9rem;
 }
 
 .event-image-top-small {
@@ -479,8 +481,8 @@ canvas.flipped {
     background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
-    width: 80px;
-    height: 80px;
+    width: 110px;
+    height: 110px;
     top: -60px;
 }
 
@@ -529,7 +531,7 @@ canvas.flipped {
 }
 
 .event-image-bottom-left {
-    background-image: url('/images/skyye/event_cloud.png');
+    /*background-image: url('/images/skyye/event_cloud.png');*/
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -541,7 +543,7 @@ canvas.flipped {
 }
 
 .event-image-bottom-right {
-    background-image: url('/images/skyye/event_cloud.png');
+    /*background-image: url('/images/skyye/event_cloud.png');*/
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
